@@ -14,11 +14,7 @@ namespace Tic_Tac_Toe
             OneThruNine = new int[9];
             int X = 1;
             int O = 2;
-            Console.WriteLine(" | |  ");
-            Console.WriteLine("------");
-            Console.WriteLine(" | |  ");
-            Console.WriteLine("------");
-            Console.WriteLine(" | |  ");
+            printBoard();
             Console.WriteLine("Player 1 where do you want to put your X?");
             int input = inputTextHandler();
             while (input == -1)
@@ -26,8 +22,9 @@ namespace Tic_Tac_Toe
                 input = inputTextHandler();
             }
             WhereTheXOrOAre(input, X);
-
-
+            printBoard();
+            Console.WriteLine("Player 2 where do you want to put your O?");
+            Console.ReadLine();
 
         }
 
@@ -58,9 +55,30 @@ namespace Tic_Tac_Toe
             OneThruNine[PlayersInput - 1] = isThisAnXOrAnO;
         }
 
-        private static void updatedBoard()
+        private static void printBoard()
         {
+            Console.WriteLine(whichIsIt(OneThruNine[0]) + "|" + whichIsIt(OneThruNine[1]) + "|" + whichIsIt(OneThruNine[2]));
+            Console.WriteLine("------");
+            Console.WriteLine(whichIsIt(OneThruNine[3]) + "|" + whichIsIt(OneThruNine[4]) + "|" + whichIsIt(OneThruNine[5]));
+            Console.WriteLine("------");
+            Console.WriteLine(whichIsIt(OneThruNine[6]) + "|" + whichIsIt(OneThruNine[7]) + "|" + whichIsIt(OneThruNine[8]));
+        }
 
+        private static string whichIsIt(int whatever)
+        {
+            if (whatever == 0)
+            {
+                return " ";
+            }
+            if (whatever == 1)
+            {
+                return "X";
+            }
+            if (whatever == 2)
+            {
+                return "O";
+            }
+            return "-1";
         }
     }
 }
