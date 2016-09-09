@@ -24,6 +24,13 @@ namespace Tic_Tac_Toe
             WhereTheXOrOAre(input, X);
             printBoard();
             Console.WriteLine("Player 2 where do you want to put your O?");
+            input = inputTextHandler();
+            while (input == -1)
+            {
+                input = inputTextHandler();
+            }
+            WhereTheXOrOAre(input, O);
+            printBoard();
             Console.ReadLine();
 
         }
@@ -79,6 +86,18 @@ namespace Tic_Tac_Toe
                 return "O";
             }
             return "-1";
+        }
+        private static int whoIsWinning()
+        {
+            if (OneThruNine[0] == OneThruNine[1] && OneThruNine[0] == OneThruNine[2])
+            {
+                if (OneThruNine[0] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[0]) + " YOU HAVE WON");
+                    return OneThruNine[0];
+                }
+
+            }
         }
     }
 }
