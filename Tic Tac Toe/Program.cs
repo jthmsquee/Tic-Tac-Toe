@@ -27,7 +27,7 @@ namespace Tic_Tac_Toe
                 }
                 WhereTheXOrOAre(input, X);
                 printBoard();
-                if (whoIsWinning() == 1 || whoIsWinning() == -1)
+                if (whoIsWinning() == -1)
                 {
                     break;
                 }
@@ -52,7 +52,7 @@ namespace Tic_Tac_Toe
                 {
                     throw new Exception();
                 }
-                if (OneThruNine[inputText - 1] >= 1)
+                if (OneThruNine[inputText - 1] == 1 || OneThruNine[inputText -1] == 2)
                 {
                     throw new Exception();
                 }
