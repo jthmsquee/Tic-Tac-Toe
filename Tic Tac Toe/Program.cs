@@ -14,25 +14,33 @@ namespace Tic_Tac_Toe
             OneThruNine = new int[9];
             int X = 1;
             int O = 2;
-            printBoard();
-            Console.WriteLine("Player 1 where do you want to put your X?");
-            int input = inputTextHandler();
-            while (input == -1)
-            {
-                input = inputTextHandler();
-            }
-            WhereTheXOrOAre(input, X);
-            printBoard();
-            Console.WriteLine("Player 2 where do you want to put your O?");
-            input = inputTextHandler();
-            while (input == -1)
-            {
-                input = inputTextHandler();
-            }
-            WhereTheXOrOAre(input, O);
-            printBoard();
-            Console.ReadLine();
 
+            while (whoIsWinning() == 0)
+            {
+                printBoard();
+                Console.WriteLine("Player 1 where do you want to put your X?");
+                int input = inputTextHandler();
+
+                while (input == -1)
+                {
+                    input = inputTextHandler();
+                }
+                WhereTheXOrOAre(input, X);
+                printBoard();
+                if (whoIsWinning() == 1 || whoIsWinning() == -1)
+                {
+                    break;
+                }
+                Console.WriteLine("Player 2 where do you want to put your O?");
+                input = inputTextHandler();
+
+                while (input == -1)
+                {
+                    input = inputTextHandler();
+                }
+                WhereTheXOrOAre(input, O);
+            }
+            Console.ReadLine();
         }
 
         private static int inputTextHandler()
@@ -98,6 +106,75 @@ namespace Tic_Tac_Toe
                 }
 
             }
+            if (OneThruNine[3] == OneThruNine[4] && OneThruNine[3] == OneThruNine[5])
+            {
+                if (OneThruNine[3] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[3]) + " YOU HAVE WON");
+                    return OneThruNine[3];
+                }
+
+            }
+            if (OneThruNine[6] == OneThruNine[7] && OneThruNine[6] == OneThruNine[8])
+            {
+                if (OneThruNine[6] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[6]) + " YOU HAVE WON");
+                    return OneThruNine[6];
+                }
+
+            }
+            if (OneThruNine[0] == OneThruNine[3] && OneThruNine[0] == OneThruNine[6])
+            {
+                if (OneThruNine[0] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[0]) + " YOU HAVE WON");
+                    return OneThruNine[0];
+                }
+
+            }
+            if (OneThruNine[1] == OneThruNine[4] && OneThruNine[1] == OneThruNine[7])
+            {
+                if (OneThruNine[1] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[1]) + " YOU HAVE WON");
+                    return OneThruNine[1];
+                }
+
+            }
+            if (OneThruNine[2] == OneThruNine[5] && OneThruNine[2] == OneThruNine[8])
+            {
+                if (OneThruNine[2] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[2]) + " YOU HAVE WON");
+                    return OneThruNine[2];
+                }
+
+            }
+            if (OneThruNine[0] == OneThruNine[4] && OneThruNine[0] == OneThruNine[8])
+            {
+                if (OneThruNine[0] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[0]) + " YOU HAVE WON");
+                    return OneThruNine[0];
+                }
+
+            }
+            if (OneThruNine[2] == OneThruNine[4] && OneThruNine[2] == OneThruNine[6])
+            {
+                if (OneThruNine[2] != 0)
+                {
+                    Console.WriteLine("CONGRATULATIONS PLAYER " + whichIsIt(OneThruNine[2]) + " YOU HAVE WON");
+                    return OneThruNine[2];
+                }
+
+            }
+            if (!OneThruNine.Contains(0))
+            {
+                Console.WriteLine("Cats Game");
+                return -1;
+            }
+            return 0; 
         }
     }
 }
