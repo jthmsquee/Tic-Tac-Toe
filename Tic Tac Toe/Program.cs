@@ -14,10 +14,10 @@ namespace Tic_Tac_Toe
             OneThruNine = new int[9];
             int X = 1;
             int O = 2;
+            printBoard();
 
             while (whoIsWinning() == 0)
             {
-                printBoard();
                 Console.WriteLine("Player 1 where do you want to put your X?");
                 int input = inputTextHandler();
 
@@ -27,7 +27,8 @@ namespace Tic_Tac_Toe
                 }
                 WhereTheXOrOAre(input, X);
                 printBoard();
-                if (whoIsWinning() == 1 || whoIsWinning() == -1)
+                int fuckMyAss = whoIsWinning();
+                if (fuckMyAss == 1 || fuckMyAss == -1)
                 {
                     break;
                 }
@@ -39,6 +40,7 @@ namespace Tic_Tac_Toe
                     input = inputTextHandler();
                 }
                 WhereTheXOrOAre(input, O);
+                printBoard();
             }
             Console.ReadLine();
         }
